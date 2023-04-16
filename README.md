@@ -21,11 +21,13 @@ https://gfx.cs.princeton.edu/pubs/Rusinkiewicz_2004_ECA/curvpaper.pdf
 https://github.com/alecjacobson/geometry-processing-curvature
 
 
+
 Discrete:
 - https://github.com/justachetan/DiffGeoOps/blob/master/DiffGeoOps.py
 - https://github.com/cuge1995/curvature-calculation-python/blob/main/plcurvature.py
 - https://libigl.github.io/libigl-python-bindings/tut-chapter1/
     - https://github.com/alecjacobson/geometry-processing-curvature
+- https://thesis.library.caltech.edu/2186/1/phd.pdf
 
 
 Shape Operator: https://jhavaldar.github.io/assets/2017-07-16-diffgeo-notes5.pdf
