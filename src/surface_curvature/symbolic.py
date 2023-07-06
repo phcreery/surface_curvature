@@ -8,14 +8,15 @@ def gradient(f: sympy.Function, vars: list[sympy.Symbol]) -> sympy.Matrix:
 
 
 ## Parametric Functions f: V --> S
-### parametrization (u,v) ↦ (x, y, z)
+### parametrization (u,v) ↦ [x, y, z]
+### r(u,v) = x(u,v) + y(u,v) + z(u,v)
 
 
 def curvature_parametric(
     f: sympy.Matrix, vars: tuple[sympy.Symbol], point: tuple = None
 ):
     """
-    f is a parametrization of a surface  f : V → S    (u,v) ↦ (x, y, z)
+    f is a parametrization of a surface  f : V → S    (u,v) ↦ [x, y, z]
     vars is the parameters (u,v)
     point is a tuple of (u, v) values to evaluate the curvature at
     """
@@ -71,7 +72,7 @@ def shape_operator_parametric(
     f: sympy.Matrix, vars: tuple[sympy.Symbol], point: tuple = None
 ):
     """
-    f is a parametrization of a surface  f : V → S    (u,v) ↦ (x, y, z)
+    f is a parametrization of a surface  f : V → S    (u,v) ↦ [x, y, z]
     vars is the parameters (u,v)
     point is a tuple of (u, v) values to evaluate the curvature at
 
