@@ -9,7 +9,7 @@ def gradient(f: sympy.Function, vars: list[sympy.Symbol]) -> sympy.Matrix:
 
 ## Parametric Functions f: V --> S
 ### parametrization (u,v) ↦ [x, y, z]
-### r(u,v) = x(u,v) + y(u,v) + z(u,v)
+### r(u,v) = < x(u,v), y(u,v), z(u,v) >
 
 
 def curvature_parametric(
