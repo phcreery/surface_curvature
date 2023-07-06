@@ -45,6 +45,7 @@ class Discrete_Cylinder1(unittest.TestCase):
             X, Y, Z
         )
 
+        # measure the center of the matricies: (0,0)
         self.assertAlmostEqual(K[10, 10], 0, places=1)
         self.assertAlmostEqual(H[10, 10], -1 / 2, places=1)
         self.assertAlmostEqual(k1[10, 10], 0, places=1)
