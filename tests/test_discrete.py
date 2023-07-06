@@ -12,14 +12,14 @@ import sympy
 class Discrete_Cylinder1(unittest.TestCase):
     u, v = sympy.symbols("u v")
 
-    # half-cylinder arounx the x axis
-    # The max pricipal curvature should be orthogonal to the x axis
+    # half-cylinder around the x axis
+    # The max principal curvature should be orthogonal to the x axis
     # and be equal to the radius of the cylinder (1)
     # with f(u,v) -> [u,v,h(u,v)] (AKA monge patch)
     f_parametric = sympy.Matrix([u, v, sympy.sqrt(1 - v**2)])
 
     # half-cylinder around the x axis
-    # The max pricipal curvature should be orthogonal to the x axis
+    # The max principal curvature should be orthogonal to the x axis
     # and be equal to the radius of the cylinder (1)
     # Explicit graph of a function with f(x,y) -> z
     # y**2 + z**2 = 1
