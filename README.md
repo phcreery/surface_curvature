@@ -1,3 +1,15 @@
+# Surface Curvature in Python
+
+Several implementations of calculating mean, gaussian, and normal surface curvature along with principal curvature and respective directions.
+
+The functions allow the surface to be defined either symbolically (with sympy) or discretely.
+You can of course take a discrete surface and fit a polynomial to the data to create a symbolic expression of the surface. Or vice-vera, by taking a symbolic function and picking out a set of data points along the surface to use for discrete evaluation.
+
+The data can be either explicit `z = f(x,y)` or parametric `(u,v) --> < x(uv), y(u,v), z(u,v) >`
+There is yet another way to define a surface, implicitly `F(x,y,z) = 0`, but I have not created the functions for it yet.
+
+These are most likely not the fastest or optimized ways to do the calculations, instead, they are meant to be a medium to learn differential geometry and how the formulas are implemented into computer code.
+
 ## References:
 
 - https://en.wikipedia.org/wiki/Differential_geometry_of_surfaces
@@ -17,11 +29,11 @@ https://jhavaldar.github.io/assets/2017-07-16-diffgeo-notes5.pdf
 
 https://github.com/sujithTSR/surface-curvature/blob/master/surface.py
 
-- https://www.mathworks.com/matlabcentral/fileexchange/11168-surface-curvature
+https://www.mathworks.com/matlabcentral/fileexchange/11168-surface-curvature
 
 Discrete:
 
-- 2004 Caltec Paper
+- 2004 Caltech Paper over Discrete Surface Curvature approach
   - https://thesis.library.caltech.edu/2186/1/phd.pdf
   - http://www.multires.caltech.edu/pubs/diffGeoOps.pdf
   - https://github.com/justachetan/DiffGeoOps/blob/master/DiffGeoOps.py
