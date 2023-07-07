@@ -19,7 +19,7 @@ def curvature_orthodiscrete_monge(Z):
     # Mean curvature
     H = (Zx**2 + 1) * Zyy - 2 * Zx * Zy * Zxy + (Zy**2 + 1) * Zxx
     H = H / (2 * (Zx**2 + Zy**2 + 1) ** (1.5))
-    # Shape operator
+    # TODO: Shape operator
     # P = np.matrix(
     #     [
     #         [
@@ -148,3 +148,6 @@ def surfature_orthodiscrete_parametric(X: np.array, Y: np.array, Z: np.array):
     k2 = H - np.sqrt(H**2 - K)
 
     return K, H, k1, k2  # , k1vec, k2vec
+
+
+# TODO: DiffGeoOps off mesh
