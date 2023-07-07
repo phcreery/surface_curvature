@@ -3,12 +3,46 @@ import numpy as np
 # https://stackoverflow.com/questions/11317579/surface-curvature-matlab-equivalent-in-python
 
 
-def mean_curvature_orthodiscrete_monge(Z: np.array):
+# TODO: add to tests
+def curvature_orthodiscrete_monge(Z):
     """
-    X is a 2D array, Y is a 2D array, and Z is a 2D array. If you have an unstructured
-    cloudpoint, with a single matrix shaped Nx3 (the first column being X, the second
-    being Y and the third being Z) then you can't apply this matlab function.
-    This assumes that your data points are 1 unit apart.
+    Z is a 2D array
+    This assumes that your data points are equal units apart
+    """
+    # https://stackoverflow.com/questions/11317579/surface-curvature-matlab-equivalent-in-python
+    Zy, Zx = np.gradient(Z)
+    Zxy, Zxx = np.gradient(Zx)
+    Zyy, _ = np.gradient(Zy)
+
+    # Gaussian curvature
+    K = (Zxx * Zyy - (Zxy**2)) / (1 + (Zx**2) + (Zy**2)) ** 2
+    # Mean curvature
+    H = (Zx**2 + 1) * Zyy - 2 * Zx * Zy * Zxy + (Zy**2 + 1) * Zxx
+    H = H / (2 * (Zx**2 + Zy**2 + 1) ** (1.5))
+    # Shape operator
+    # P = np.matrix(
+    #     [
+    #         [
+    #             Zxx * (1 + Zy**2 - Zxy * Zx * Zy),
+    #             Zxy * (1 + Zx**2 - Zxx * Zx * Zy),
+    #         ],
+    #         [
+    #             Zxy * (1 + Zy**2 - Zyy * Zx * Zy),
+    #             Zyy * (1 + Zx**2 - Zxy * Zx * Zy),
+    #         ],
+    #     ]
+    # ) / ((1 + Zx**2 + Zy**2) ** (3 / 2))
+
+    k1 = H + np.sqrt(H**2 - K)
+    k2 = H - np.sqrt(H**2 - K)
+
+    return K, H, k1, k2  # , k1vec, k2vec
+
+
+def mean_curvature_orthodiscrete_monge(Z):
+    """
+    Z is a 2D array
+    This assumes that your data points are equal units apart.
 
     The matrix Z is a 2D array with vertices arranged in the mesh form:
 
@@ -32,9 +66,7 @@ def mean_curvature_orthodiscrete_monge(Z: np.array):
 def gaussian_curvature_orthodiscrete_monge(Z: np.array):
     """
     Z is a 2D array
-    The curvature in general is measured as 1/r, where r is the radius of an inscribed
-    circle. Since mean curvature is the average of the two principal curvatures it has
-    the units of 1/mm. The Gaussian curvature is the product of them, so it is 1/mm^2.
+    This assumes that your data points are equal units apart
     """
     # https://stackoverflow.com/questions/11317579/surface-curvature-matlab-equivalent-in-python
     Zy, Zx = np.gradient(Z)
