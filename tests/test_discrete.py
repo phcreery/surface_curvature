@@ -41,7 +41,7 @@ class Discrete_Cylinder1(unittest.TestCase):
         f2 = sympy.lambdify((x, y), self.f_explicit)
         Z = f2(X, Y)
 
-        K, H, k1, k2 = surface_curvature.discrete.surfature_orthodiscrete_parametric(
+        K, H, k1, k2 = surface_curvature.discrete.curvature_discrete_parametric(
             X, Y, Z
         )
 

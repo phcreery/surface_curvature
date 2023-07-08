@@ -76,7 +76,8 @@ def gaussian_curvature_orthodiscrete_monge(Z: np.array):
     return K
 
 
-def surfature_orthodiscrete_parametric(X: np.array, Y: np.array, Z: np.array):
+def curvature_discrete_parametric(X: np.array, Y: np.array, Z: np.array):
+    # known by MATLAB as surfature
     # where X, Y, Z matrices have a shape (lr+1,lb+1)
     # https://github.com/sujithTSR/surface-curvature/blob/master/surface.py
 
@@ -119,7 +120,7 @@ def surfature_orthodiscrete_parametric(X: np.array, Y: np.array, Z: np.array):
     Xuv = np.c_[Xuv, Yuv, Zuv]
     Xvv = np.c_[Xvv, Yvv, Zvv]
 
-    # % First fundamental Coeffecients of the surface (E,F,G)
+    # % First fundamental Coefficients of the surface (E,F,G)
     E = np.einsum("ij,ij->i", Xu, Xu)
     F = np.einsum("ij,ij->i", Xu, Xv)
     G = np.einsum("ij,ij->i", Xv, Xv)
@@ -128,7 +129,7 @@ def surfature_orthodiscrete_parametric(X: np.array, Y: np.array, Z: np.array):
     p = np.sqrt(np.einsum("ij,ij->i", m, m))
     n = m / np.c_[p, p, p]
 
-    # % Second fundamental Coeffecients of the surface (L,M,N)
+    # % Second fundamental Coefficients of the surface (L,M,N)
     L = np.einsum("ij,ij->i", Xuu, n)
     M = np.einsum("ij,ij->i", Xuv, n)
     N = np.einsum("ij,ij->i", Xvv, n)

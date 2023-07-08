@@ -57,13 +57,22 @@ def curvature_parametric(
         K = K.subs({u: point[0], v: point[1]})
         H = H.subs({u: point[0], v: point[1]})
 
-    # k1 = H + sympy.sqrt(H**2 - K)
-    # k2 = H - sympy.sqrt(H**2 - K)
-    ## alternatively
     k1 = X[0][0]
     k2 = X[1][0]
-    k1vec = X[0][2][0]
-    k2vec = X[1][2][0]
+    X1 = X[0][2][0]
+    X2 = X[1][2][0]
+
+    df = gradient(f, vars)
+    if point is None:
+        k1vec = df * X1
+        k2vec = df * X2
+    else:
+        k1vec = (df * X1).subs({u: point[0], v: point[1]})
+        k2vec = (df * X2).subs({u: point[0], v: point[1]})
+
+    ## alternatively
+    # k1 = H + sympy.sqrt(H**2 - K)
+    # k2 = H - sympy.sqrt(H**2 - K)
 
     return K, H, k1, k2, k1vec, k2vec
 
@@ -186,9 +195,9 @@ def curvature_explicit(
     h_vv = sympy.diff(h_v, v)
 
     ## alternatively
-    # h_u, f_v = gradient(h, vars)
-    # h_uu, f_uv = gradient(f_u, vars)
-    # h_vu, f_vv = gradient(f_v, vars)
+    # h_u, h_v = gradient(h, vars)
+    # h_uu, h_uv = gradient(f_u, vars)
+    # h_vu, h_vv = gradient(f_v, vars)
 
     # Shape operator
     P = sympy.Matrix(
@@ -218,13 +227,22 @@ def curvature_explicit(
         K = K.subs({u: point[0], v: point[1]})
         H = H.subs({u: point[0], v: point[1]})
 
-    # k1 = H + sympy.sqrt(H**2 - K)
-    # k2 = H - sympy.sqrt(H**2 - K)
-    ## alternatively
     k1 = X[0][0]
     k2 = X[1][0]
-    k1vec = X[0][2][0]
-    k2vec = X[1][2][0]
+    X1 = X[0][2][0]
+    X2 = X[1][2][0]
+
+    dh = gradient(sympy.Matrix([u, v, h]), vars)
+    if point is None:
+        k1vec = dh * X1
+        k2vec = dh * X2
+    else:
+        k1vec = (dh * X1).subs({u: point[0], v: point[1]})
+        k2vec = (dh * X2).subs({u: point[0], v: point[1]})
+
+    ## alternatively
+    # k1 = H + sympy.sqrt(H**2 - K)
+    # k2 = H - sympy.sqrt(H**2 - K)
 
     return K, H, k1, k2, k1vec, k2vec
 

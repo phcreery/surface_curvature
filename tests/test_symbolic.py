@@ -36,8 +36,8 @@ class Symbolic_Cylinder1(unittest.TestCase):
         self.assertEqual(H.subs({u: 0, v: 0}), -1 / 2)
         self.assertEqual(k1.subs({u: 0, v: 0}), 0)
         self.assertEqual(k2.subs({u: 0, v: 0}), -1)
-        self.assertEqual(k1vec, sympy.Matrix([1, 0]))
-        self.assertEqual(k2vec, sympy.Matrix([0, 1]))
+        self.assertEqual(k1vec, sympy.Matrix([1, 0, 0]))
+        self.assertEqual(k2vec, sympy.Matrix([0, 1, -v / sympy.sqrt(1 - v**2)]))
 
         K, H, k1, k2, k1vec, k2vec = surface_curvature.symbolic.curvature_parametric(
             self.f_parametric, (u, v), (0, 0)
@@ -46,8 +46,8 @@ class Symbolic_Cylinder1(unittest.TestCase):
         self.assertEqual(H, -1 / 2)
         self.assertEqual(k1, -1)
         self.assertEqual(k2, 0)
-        self.assertEqual(k1vec, sympy.Matrix([0, 1]))
-        self.assertEqual(k2vec, sympy.Matrix([1, 0]))
+        self.assertEqual(k1vec, sympy.Matrix([0, 1, 0]))
+        self.assertEqual(k2vec, sympy.Matrix([1, 0, 0]))
 
     def test_explicit(self):
         u, v = self.u, self.v
@@ -58,8 +58,13 @@ class Symbolic_Cylinder1(unittest.TestCase):
         self.assertEqual(H.subs({u: 0, v: 0}), -1 / 2)
         self.assertEqual(k1.subs({u: 0, v: 0}), 0)
         self.assertEqual(k2.subs({u: 0, v: 0}), -1)
-        self.assertEqual(k1vec, sympy.Matrix([1, 0]))
-        self.assertEqual(k2vec, sympy.Matrix([0, 1]))
+        self.assertEqual(k1vec, sympy.Matrix([1.0, 0, 0]))
+        self.assertEqual(
+            k2vec,
+            sympy.Matrix(
+                [[0], [1.00000000000000], [-1.0 * v / sympy.sqrt(1 - v**2)]]
+            ),
+        )
 
         K, H, k1, k2, k1vec, k2vec = surface_curvature.symbolic.curvature_explicit(
             self.f_explicit, (u, v), (0, 0)
@@ -68,8 +73,8 @@ class Symbolic_Cylinder1(unittest.TestCase):
         self.assertEqual(H, -1 / 2)
         self.assertEqual(k1, -1)
         self.assertEqual(k2, 0)
-        self.assertEqual(k1vec, sympy.Matrix([0, 1]))
-        self.assertEqual(k2vec, sympy.Matrix([1, 0]))
+        self.assertEqual(k1vec, sympy.Matrix([0, 1, 0]))
+        self.assertEqual(k2vec, sympy.Matrix([1, 0, 0]))
 
     def test_mean(self):
         x, y = self.u, self.v
@@ -86,6 +91,7 @@ class Symbolic_Cylinder1(unittest.TestCase):
         )
         K = gaussian.subs({x: 0, y: 0})  # = 0
         self.assertEqual(K, 0)
+
 
 # class Symbolic_Polynomial(unittest.TestCase):
 #     def test_explicit(self):
