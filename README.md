@@ -12,6 +12,8 @@ These are most likely not the fastest or optimized ways to do the calculations, 
 
 ## References:
 
+### Definitions
+
 - https://en.wikipedia.org/wiki/Differential_geometry_of_surfaces
 - https://en.wikipedia.org/wiki/Curvature
 - https://en.wikipedia.org/wiki/Principal_curvature
@@ -31,16 +33,22 @@ https://github.com/sujithTSR/surface-curvature/blob/master/surface.py
 
 https://www.mathworks.com/matlabcentral/fileexchange/11168-surface-curvature
 
-Discrete:
+### Discrete Algorithms:
 
 - 2004 Caltech Paper over Discrete Surface Curvature approach
   - https://thesis.library.caltech.edu/2186/1/phd.pdf
   - http://www.multires.caltech.edu/pubs/diffGeoOps.pdf
   - https://github.com/justachetan/DiffGeoOps/blob/master/DiffGeoOps.py
+- 2004 Princeton Paper for "Estimating Curvatures and Their Derivatives on Triangle Meshes"
+
+  - https://gfx.cs.princeton.edu/pubs/Rusinkiewicz_2004_ECA/curvpaper.pdf
+  - https://stackoverflow.com/questions/14234127/how-to-get-principal-curvature-of-a-given-mesh
+  - https://github.com/Forceflow/trimesh2/blob/main/libsrc/TriMesh_curvature.cc
+
 - https://libigl.github.io/libigl-python-bindings/tut-chapter1/
   - https://github.com/alecjacobson/geometry-processing-curvature
+  - https://github.com/libigl/libigl/blob/0a92f2cdb26b2b557566f80bc07f8d4254879fbd/include/igl/principal_curvature.cpp
 - https://github.com/cuge1995/curvature-calculation-python/blob/main/plcurvature.py
-- https://gfx.cs.princeton.edu/pubs/Rusinkiewicz_2004_ECA/curvpaper.pdf
 - https://blender.stackexchange.com/questions/146819/is-there-a-way-to-calculate-mean-curvature-of-a-triangular-mesh/147371#147371
 
 `Curvedness = sqrt((k1**2 + k2**2)/2)`

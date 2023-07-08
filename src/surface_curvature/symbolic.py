@@ -44,7 +44,7 @@ def curvature_parametric(
     N = f_vv.dot(n)
 
     # Shape Operator
-    P = sympy.Matrix([[L, M], [M, N]]) * sympy.Matrix([[E, F], [F, G]]).T
+    P = sympy.Matrix([[L, M], [M, N]]) * sympy.Matrix([[E, F], [F, G]]).inv()
     # Gaussian Curvature
     K = (L * N - M**2) / (E * G - F**2)
     # Mean Curvature
