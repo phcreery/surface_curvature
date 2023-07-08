@@ -97,7 +97,7 @@ def curvature_discrete_parametric(X: np.array, Y: np.array, Z: np.array):
     Yvv, Yuv = np.gradient(Yv)
     Zvv, Zuv = np.gradient(Zv)
 
-    # Reshape to 1D vectors
+    # Reshape to 1D vectors (same as ravel?)
     Xu = np.reshape(Xu, lr * lb)
     Yu = np.reshape(Yu, lr * lb)
     Zu = np.reshape(Zu, lr * lb)
@@ -136,19 +136,76 @@ def curvature_discrete_parametric(X: np.array, Y: np.array, Z: np.array):
 
     # % Gaussian Curvature
     K = (L * N - M**2) / (E * G - F**2)
-    # K = np.reshape(K, lr * lb)
-    K = np.reshape(K, (lr, lb))
 
     # % Mean Curvature
     H = (E * N + G * L - 2 * F * M) / (2 * (E * G - F**2))
-    # H = np.reshape(H, lr * lb)
+
+    # L = np.reshape(L, lr * lb)
+    # M = np.reshape(M, lr * lb)
+    # N = np.reshape(N, lr * lb)
+
+    # resape to 1D vectors (lr * lb,)
+    # L = np.ravel(L)
+    # M = np.ravel(M)
+    # N = np.ravel(N)
+
+    # % Shape Operator as 3D a matrix of 2D matrices (2, 2, lr*lb)
+    LMMN = np.array([[L, M], [M, N]])
+    EFFG = np.array([[E, F], [F, G]])
+    # reshape so that the 2D matrices are in the last dimension (lr*lb, 2, 2)
+    LMMN = np.swapaxes(LMMN, 0, 2)
+    EFFG = np.swapaxes(EFFG, 0, 2)
+
+    P = LMMN * np.linalg.inv(EFFG)
+    X = np.linalg.eig(P)
+
+    # the result of eig is a tuple of (eigenvalues, eigenvectors)
+    k1 = X[0][:, 0]  # all the first eigenvalues
+    k2 = X[0][:, 1]  # all the second eigenvalues
+    X1 = X[1][:, 0, :]  # all the first eigenvectors
+    X2 = X[1][:, 1, :]  # all the second eigenvectors
+
+    X1 = np.expand_dims(X1, 2)  # add a dimension to the end (lr*lb, 3, 1)
+    X2 = np.expand_dims(X2, 2)  # add a dimension to the end (lr*lb, 3, 1)
+
+    # print('X1.shape', X1.shape)
+    # print('X1', X1)
+    # print('X2.shape', X2.shape)
+    # print('X2', X2)
+
+    dX = np.dstack((Xu, Xv))
+    # print('dX.shape', dX.shape)
+
+    # matrix multiplication of dX and X1 for each point
+    k1vec = np.einsum("ijk,ikl->ilj", dX, X1)
+    k2vec = np.einsum("ijk,ikl->ilj", dX, X2)
+
+    # normalize the vectors
+    k1vec = k1vec / np.linalg.norm(k1vec, axis=2, keepdims=True)
+    k2vec = k2vec / np.linalg.norm(k2vec, axis=2, keepdims=True)
+
+    # #% Principal Curvatures k1, k2 (alternative from gaussian and mean curvature)
+    # k1 = H + np.sqrt(H**2 - K)
+    # k2 = H - np.sqrt(H**2 - K)
+
+    # print('k1.shape', k1.shape)
+    # print('k1', k1)
+    # print('k2.shape', k2.shape)
+    # print('k2', k2)
+    # print('k1vec.shape', k1vec.shape)
+    # print('k1vec', k1vec)
+    # print('k2vec.shape', k2vec.shape)
+    # print('k2vec', k2vec)
+
+    # reshape back to 2D x,y matrices
+    K = np.reshape(K, (lr, lb))
     H = np.reshape(H, (lr, lb))
+    k1 = np.reshape(k1, (lr, lb))
+    k2 = np.reshape(k2, (lr, lb))
+    k1vec = np.reshape(k1vec, (lr, lb, 3))
+    k2vec = np.reshape(k2vec, (lr, lb, 3))
 
-    # #% Principal Curvatures
-    k1 = H + np.sqrt(H**2 - K)
-    k2 = H - np.sqrt(H**2 - K)
-
-    return K, H, k1, k2  # , k1vec, k2vec
+    return K, H, k1, k2, k1vec, k2vec
 
 
 # TODO: DiffGeoOps off mesh

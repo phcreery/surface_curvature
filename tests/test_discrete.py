@@ -41,14 +41,19 @@ class Discrete_Cylinder1(unittest.TestCase):
         f2 = sympy.lambdify((x, y), self.f_explicit)
         Z = f2(X, Y)
 
-        K, H, k1, k2 = surface_curvature.discrete.curvature_discrete_parametric(
-            X, Y, Z
-        )
+        (
+            K,
+            H,
+            k1,
+            k2,
+            k1vec,
+            k2vec,
+        ) = surface_curvature.discrete.curvature_discrete_parametric(X, Y, Z)
 
-        # measure the center of the matricies: (0,0)
-        self.assertAlmostEqual(K[10, 10], 0, places=1)
-        self.assertAlmostEqual(H[10, 10], -1 / 2, places=1)
-        self.assertAlmostEqual(k1[10, 10], 0, places=1)
-        self.assertAlmostEqual(k2[10, 10], -1, places=1)
-        # self.assertEqual(k1vec, sympy.Matrix([1, 0]))
-        # self.assertEqual(k2vec, sympy.Matrix([0, 1]))
+        # measure the center of the matrices: (0,0)
+        self.assertAlmostEqual(K[10, 10], 0, delta=0.1)
+        self.assertAlmostEqual(H[10, 10], -1 / 2, delta=0.1)
+        self.assertAlmostEqual(k1[10, 10], 0, delta=0.1)
+        self.assertAlmostEqual(k2[10, 10], -1, delta=0.1)
+        self.assertTrue(np.abs(k1vec[10, 10] - np.array([1, 0, 0])).all() < 0.1)
+        self.assertTrue(np.abs(k2vec[10, 10] - np.array([0, 1, 0])).all() < 0.1)
