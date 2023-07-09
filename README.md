@@ -14,6 +14,34 @@ These are most likely not the fastest or optimized ways to do the calculations, 
 
 ![examples/discrete_shape.ipynb](docs/image.png)
 
+- [x] Symbolic
+  - [x] Explicit
+    - [x] Mean
+    - [x] Gaussian
+    - [x] Principal
+    - [x] Principal vectors
+  - [x] Parametric
+    - [x] Mean
+    - [x] Gaussian
+    - [x] Principal
+    - [x] Principal vectors
+- [x] Discrete (orthogonal)
+  - [x] Explicit (monge patch)
+    - [x] Mean
+    - [x] Gaussian
+    - [ ] Principal
+    - [ ] Principal vectors
+  - [x] Parametric
+    - [x] Mean
+    - [x] Gaussian
+    - [x] Principal
+    - [x] Principal vectors
+  - [ ] Arbitrary Mesh
+    - [ ] [Discrete Differential-Geometry Operators for Triangulated 2-Manifolds. Mark Meyer, Mathieu Desbrun, Peter Schröder and Alan H. Barr. VisMath 2002](http://www.multires.caltech.edu/pubs/diffGeoOps.pdf)
+      - see `example/DiffGeoOps.ipynb`
+    - [ ] [Rusinkiewicz, Szymon. "Estimating Curvatures and Their Derivatives on Triangle Meshes," Proc. 3DPVT, 2004.](https://gfx.cs.princeton.edu/pubs/Rusinkiewicz_2004_ECA/curvpaper.pdf)
+    - [ ] [Using a localized fitting of surface to each vertex normal for computing curvature. polynomial regression or quadratic interpolation on the nearby vertices around the point to calculate curvature.](https://stackoverflow.com/a/14234542)
+
 ## References:
 
 ### Definitions
