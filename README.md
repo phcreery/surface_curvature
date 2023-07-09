@@ -29,7 +29,7 @@ These are most likely not the fastest or optimized ways to do the calculations, 
   - [x] Explicit (monge patch)
     - [x] Mean
     - [x] Gaussian
-    - [ ] Principal
+    - [x] Principal
     - [ ] Principal vectors
   - [x] Parametric
     - [x] Mean
