@@ -10,6 +10,10 @@ There is yet another way to define a surface, implicitly `F(x,y,z) = 0`, but I h
 
 These are most likely not the fastest or optimized ways to do the calculations, instead, they are meant to be a medium to learn differential geometry and how the formulas are implemented into computer code.
 
+![examples/DiffGeoOps.ipynb](docs/gaussian_torus.png)
+
+![examples/discrete_shape.ipynb](docs/image.png)
+
 ## References:
 
 ### Definitions
