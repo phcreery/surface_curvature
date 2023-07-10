@@ -25,8 +25,8 @@ These are most likely not the fastest or optimized ways to do the calculations, 
     - [x] Gaussian
     - [x] Principal
     - [x] Principal vectors
-- [x] Discrete (orthogonal)
-  - [x] Explicit (monge patch)
+- [x] Discrete
+  - [x] Explicit orthogonal (monge patch)
     - [x] Mean
     - [x] Gaussian
     - [x] Principal
