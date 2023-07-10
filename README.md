@@ -59,17 +59,17 @@ python -m unittest discover .\tests\
 - https://en.wikipedia.org/wiki/Gaussian_curvature
 - https://en.wikipedia.org/wiki/Parametric_surface#Curvature
 
-https://mathworld.wolfram.com/MeanCurvature.html
+### References
 
-http://wordpress.discretization.de/geometryprocessingandapplicationsws19/a-quick-and-dirty-introduction-to-the-curvature-of-surfaces/
-
-https://liavas.net/courses/math430/files/Surfaces.pdf
-
-https://jhavaldar.github.io/assets/2017-07-16-diffgeo-notes5.pdf
-
-https://github.com/sujithTSR/surface-curvature/blob/master/surface.py
-
-https://www.mathworks.com/matlabcentral/fileexchange/11168-surface-curvature
+- https://mathworld.wolfram.com/MeanCurvature.html
+- http://wordpress.discretization.de/geometryprocessingandapplicationsws19/a-quick-and-dirty-introduction-to-the-curvature-of-surfaces/
+- https://liavas.net/courses/math430/files/Surfaces.pdf
+- https://jhavaldar.github.io/assets/2017-07-16-diffgeo-notes5.pdf
+- https://github.com/sujithTSR/surface-curvature/blob/master/surface.py
+- https://www.mathworks.com/matlabcentral/fileexchange/11168-surface-curvature
+- `Curvedness = sqrt((k1**2 + k2**2)/2)`
+  - https://www.researchgate.net/publication/324908170_Description_and_Retrieval_of_Geometric_Patterns_on_Surface_Meshes_using_an_edge-based_LBP_approach
+- https://machinelearningmastery.com/a-gentle-introduction-to-the-laplacian/
 
 ### Discrete Algorithms:
 
@@ -89,8 +89,4 @@ https://www.mathworks.com/matlabcentral/fileexchange/11168-surface-curvature
 - https://github.com/cuge1995/curvature-calculation-python/blob/main/plcurvature.py
 - https://blender.stackexchange.com/questions/146819/is-there-a-way-to-calculate-mean-curvature-of-a-triangular-mesh/147371#147371
 
-- `Curvedness = sqrt((k1**2 + k2**2)/2)`
-  - https://www.researchgate.net/publication/324908170_Description_and_Retrieval_of_Geometric_Patterns_on_Surface_Meshes_using_an_edge-based_LBP_approach
-
-https://machinelearningmastery.com/a-gentle-introduction-to-the-laplacian/
 
