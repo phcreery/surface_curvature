@@ -42,6 +42,12 @@ These are most likely not the fastest or optimized ways to do the calculations, 
     - [ ] [Rusinkiewicz, Szymon. "Estimating Curvatures and Their Derivatives on Triangle Meshes," Proc. 3DPVT, 2004.](https://gfx.cs.princeton.edu/pubs/Rusinkiewicz_2004_ECA/curvpaper.pdf)
     - [ ] [Using a localized fitting of surface to each vertex normal for computing curvature. polynomial regression or quadratic interpolation on the nearby vertices around the point to calculate curvature.](https://stackoverflow.com/a/14234542)
 
+## Testing
+
+```
+python -m unittest discover .\tests\
+```
+
 ## References:
 
 ### Definitions
@@ -71,8 +77,8 @@ https://www.mathworks.com/matlabcentral/fileexchange/11168-surface-curvature
   - https://thesis.library.caltech.edu/2186/1/phd.pdf
   - http://www.multires.caltech.edu/pubs/diffGeoOps.pdf
   - https://github.com/justachetan/DiffGeoOps/blob/master/DiffGeoOps.py
-- 2004 Princeton Paper for "Estimating Curvatures and Their Derivatives on Triangle Meshes"
 
+- 2004 Princeton Paper for "Estimating Curvatures and Their Derivatives on Triangle Meshes"
   - https://gfx.cs.princeton.edu/pubs/Rusinkiewicz_2004_ECA/curvpaper.pdf
   - https://stackoverflow.com/questions/14234127/how-to-get-principal-curvature-of-a-given-mesh
   - https://github.com/Forceflow/trimesh2/blob/main/libsrc/TriMesh_curvature.cc
@@ -83,12 +89,8 @@ https://www.mathworks.com/matlabcentral/fileexchange/11168-surface-curvature
 - https://github.com/cuge1995/curvature-calculation-python/blob/main/plcurvature.py
 - https://blender.stackexchange.com/questions/146819/is-there-a-way-to-calculate-mean-curvature-of-a-triangular-mesh/147371#147371
 
-`Curvedness = sqrt((k1**2 + k2**2)/2)`
-
-- https://www.researchgate.net/publication/324908170_Description_and_Retrieval_of_Geometric_Patterns_on_Surface_Meshes_using_an_edge-based_LBP_approach
+- `Curvedness = sqrt((k1**2 + k2**2)/2)`
+  - https://www.researchgate.net/publication/324908170_Description_and_Retrieval_of_Geometric_Patterns_on_Surface_Meshes_using_an_edge-based_LBP_approach
 
 https://machinelearningmastery.com/a-gentle-introduction-to-the-laplacian/
 
-```
-python -m unittest discover .\tests\
-```
