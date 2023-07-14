@@ -61,8 +61,11 @@ python -m unittest discover .\tests\
 
 ### References
 
+- Keenan Crane (see [KeenanCraneLect15](examples/KeenanCraneLect15.ipynb))
+  - https://brickisland.net/DDGFall2017/wp-content/uploads/2017/10/CMU_DDG_Fall2017_08_Surfaces.pdf
+  - https://www.youtube.com/watch?v=e-erMrqBd1w
+  - http://wordpress.discretization.de/geometryprocessingandapplicationsws19/a-quick-and-dirty-introduction-to-the-curvature-of-surfaces/
 - https://mathworld.wolfram.com/MeanCurvature.html
-- http://wordpress.discretization.de/geometryprocessingandapplicationsws19/a-quick-and-dirty-introduction-to-the-curvature-of-surfaces/
 - https://liavas.net/courses/math430/files/Surfaces.pdf
 - https://jhavaldar.github.io/assets/2017-07-16-diffgeo-notes5.pdf
 - https://github.com/sujithTSR/surface-curvature/blob/master/surface.py
@@ -83,10 +86,21 @@ python -m unittest discover .\tests\
   - https://stackoverflow.com/questions/14234127/how-to-get-principal-curvature-of-a-given-mesh
   - https://github.com/Forceflow/trimesh2/blob/main/libsrc/TriMesh_curvature.cc
 
+- Keenan Crane
+  - https://www.cs.cmu.edu/~kmcrane/Projects/DGPDEC/paper.pdf
+  - 
+
+- 2021
+  - https://hal.science/hal-03272493/document
+  - https://github.com/STORM-IRIT/algebraic-shape-operator/tree/main/examples
+
 - https://libigl.github.io/libigl-python-bindings/tut-chapter1/
   - https://github.com/alecjacobson/geometry-processing-curvature
   - https://github.com/libigl/libigl/blob/0a92f2cdb26b2b557566f80bc07f8d4254879fbd/include/igl/principal_curvature.cpp
 - https://github.com/cuge1995/curvature-calculation-python/blob/main/plcurvature.py
 - https://blender.stackexchange.com/questions/146819/is-there-a-way-to-calculate-mean-curvature-of-a-triangular-mesh/147371#147371
-
-
+- https://www.cs.purdue.edu/homes/cs53100/slides/geom.pdf
+- https://jhavaldar.github.io/assets/2017-07-16-diffgeo-notes5.pdf
+- https://github.com/pmp-library/pmp-library/blob/main/src/pmp/algorithms/curvature.cpp
+- https://github.com/AbhilashReddyM/curvpack
+- https://github.com/cuge1995/curvature-calculation-python/blob/main/plcurvature.py

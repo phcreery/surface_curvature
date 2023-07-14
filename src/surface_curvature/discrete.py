@@ -92,6 +92,8 @@ def gaussian_curvature_orthodiscrete_monge(Z: np.array):
     return K
 
 
+# TODO: NEEDS TO BE TESTED with f_explicit = 2 + 0.1*(u-v)*(v-2*u)
+# see examples/discrete_shape.ipynb
 def curvature_discrete_parametric(X: np.array, Y: np.array, Z: np.array):
     # known by MATLAB as surfature
     # where X, Y, Z matrices have a shape (lr+1,lb+1)
@@ -177,7 +179,7 @@ def curvature_discrete_parametric(X: np.array, Y: np.array, Z: np.array):
 
     dX = np.dstack((Xu, Xv))
 
-    # matrix multiplication of dX and X1 for each point
+    # matrix multiplication of dX and X for each point
     k1vec = np.einsum("ijk,ikl->ilj", dX, X1)
     k2vec = np.einsum("ijk,ikl->ilj", dX, X2)
 
