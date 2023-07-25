@@ -203,12 +203,12 @@ def curvature_explicit(
     P = sympy.Matrix(
         [
             [
-                h_uu * (1 + h_v**2 - h_uv * h_u * h_v),
-                h_uv * (1 + h_u**2 - h_uu * h_u * h_v),
+                h_uu * (1 + h_v**2) - h_uv * h_u * h_v,
+                h_uv * (1 + h_u**2) - h_uu * h_u * h_v,
             ],
             [
-                h_uv * (1 + h_v**2 - h_vv * h_u * h_v),
-                h_vv * (1 + h_u**2 - h_uv * h_u * h_v),
+                h_uv * (1 + h_v**2) - h_vv * h_u * h_v,
+                h_vv * (1 + h_u**2) - h_uv * h_u * h_v,
             ],
         ]
     ) / ((1 + h_u**2 + h_v**2) ** (3 / 2))

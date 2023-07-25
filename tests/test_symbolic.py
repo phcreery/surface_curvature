@@ -9,7 +9,7 @@ import sympy
 # first, lets create some hypothetical surfaces to pass to the functions
 
 
-class Symbolic_Cylinder1(unittest.TestCase):
+class Cylinder1(unittest.TestCase):
     u, v = sympy.symbols("u v")
 
     # half-cylinder arounx the x axis
@@ -91,6 +91,30 @@ class Symbolic_Cylinder1(unittest.TestCase):
         )
         K = gaussian.subs({x: 0, y: 0})  # = 0
         self.assertEqual(K, 0)
+
+
+class CylindricalTurnedSurface1(unittest.TestCase):
+    u, v = sympy.symbols("u v")
+
+    # surface that warps the x-y plane into a cylindrical shape
+    # (u-v)*(u-v) gives a curve that bends around the x=y line
+    # (2*u-v)*(2*u-v) gives a curve that bends around the x=2*y line
+    f_explicit = 2 + -(2 * u - v) * (2 * u - v)
+
+    def test_parametric(self):
+        u, v = self.u, self.v
+        K, H, k1, k2, k1vec, k2vec = surface_curvature.symbolic.curvature_explicit(
+            self.f_explicit, (u, v), (0, 0)
+        )
+
+        self.assertEqual(K, 0)
+        self.assertEqual(H, -5)
+        self.assertEqual(k1, -10)
+        self.assertEqual(k2, 0)
+        v = sympy.Matrix([-2, 1, 0])
+        self.assertEqual(k1vec.normalized().evalf(), v.normalized().evalf())
+        v = sympy.Matrix([1, 2, 0])
+        self.assertEqual(k2vec.normalized().evalf(), v.normalized().evalf())
 
 
 # class Symbolic_Polynomial(unittest.TestCase):

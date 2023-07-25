@@ -30,17 +30,17 @@ These are most likely not the fastest or optimized ways to do the calculations, 
     - [x] Mean
     - [x] Gaussian
     - [x] Principal
-    - [ ] Principal vectors
+    - [X] Principal vectors
   - [x] Parametric
     - [x] Mean
     - [x] Gaussian
     - [x] Principal
-    - [x] Principal vectors
+    - [ ] Principal vectors
   - [ ] Arbitrary Mesh
     - [ ] [Discrete Differential-Geometry Operators for Triangulated 2-Manifolds. Mark Meyer, Mathieu Desbrun, Peter Schröder and Alan H. Barr. VisMath 2002](http://www.multires.caltech.edu/pubs/diffGeoOps.pdf)
       - see `example/DiffGeoOps.ipynb`
     - [ ] [Rusinkiewicz, Szymon. "Estimating Curvatures and Their Derivatives on Triangle Meshes," Proc. 3DPVT, 2004.](https://gfx.cs.princeton.edu/pubs/Rusinkiewicz_2004_ECA/curvpaper.pdf)
-    - [ ] [Using a localized fitting of surface to each vertex normal for computing curvature. polynomial regression or quadratic interpolation on the nearby vertices around the point to calculate curvature.](https://stackoverflow.com/a/14234542)
+    - [ ] [Quadratic Fitting. Panozzo, 2010. (Using a localized fitting of surface to each vertex normal for computing curvature. polynomial regression or quadratic interpolation on the nearby vertices around the point to calculate principal curvatures.)](https://cims.nyu.edu/gcl/papers/GraVisMa10-PanozzoPuppoRocca.pdf)
 
 ## Testing
 
@@ -77,26 +77,35 @@ python -m unittest discover .\tests\
 ### Discrete Algorithms:
 
 - 2004 Caltech Paper over Discrete Surface Curvature approach
+
   - https://thesis.library.caltech.edu/2186/1/phd.pdf
   - http://www.multires.caltech.edu/pubs/diffGeoOps.pdf
   - https://github.com/justachetan/DiffGeoOps/blob/master/DiffGeoOps.py
 
 - 2004 Princeton Paper for "Estimating Curvatures and Their Derivatives on Triangle Meshes"
+
   - https://gfx.cs.princeton.edu/pubs/Rusinkiewicz_2004_ECA/curvpaper.pdf
   - https://stackoverflow.com/questions/14234127/how-to-get-principal-curvature-of-a-given-mesh
   - https://github.com/Forceflow/trimesh2/blob/main/libsrc/TriMesh_curvature.cc
 
 - Keenan Crane
+
   - https://www.cs.cmu.edu/~kmcrane/Projects/DGPDEC/paper.pdf
-  - 
+  -
+
+- 2010 Panozzo - Quadratic Fitting
+
+  - https://cims.nyu.edu/gcl/papers/GraVisMa10-PanozzoPuppoRocca.pdf
+  - https://github.com/libigl/libigl/blob/main/include/igl/principal_curvature.cpp
+  - https://libigl.github.io/libigl-python-bindings/tut-chapter1/
 
 - 2021
+
   - https://hal.science/hal-03272493/document
   - https://github.com/STORM-IRIT/algebraic-shape-operator/tree/main/examples
 
-- https://libigl.github.io/libigl-python-bindings/tut-chapter1/
-  - https://github.com/alecjacobson/geometry-processing-curvature
-  - https://github.com/libigl/libigl/blob/0a92f2cdb26b2b557566f80bc07f8d4254879fbd/include/igl/principal_curvature.cpp
+- https://stackoverflow.com/a/14234542
+- https://github.com/alecjacobson/geometry-processing-curvature (See 2010 Panozzo)
 - https://github.com/cuge1995/curvature-calculation-python/blob/main/plcurvature.py
 - https://blender.stackexchange.com/questions/146819/is-there-a-way-to-calculate-mean-curvature-of-a-triangular-mesh/147371#147371
 - https://www.cs.purdue.edu/homes/cs53100/slides/geom.pdf
