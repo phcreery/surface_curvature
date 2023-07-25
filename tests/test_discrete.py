@@ -27,20 +27,20 @@ class Cylinder1(unittest.TestCase):
     # f_explicit = sympy.parsing.sympy_parser.parse_expr(f_explicitstr, evaluate=False)
     f_explicit = sympy.sqrt(1 - v**2)
 
+    x, y = u, v
+
+    # coordinate range
+    xx = np.linspace(-1, 1, 20)
+    yy = np.linspace(-1, 1, 20)
+
+    # make coordinate point
+    X, Y = np.meshgrid(xx, yy)
+
+    # dependent variable point on coordinate
+    f2 = sympy.lambdify((x, y), f_explicit)
+    Z = f2(X, Y)
+
     def test_parametric(self):
-        x, y = self.u, self.v
-
-        # coordinate range
-        xx = np.linspace(-1, 1, 20)
-        yy = np.linspace(-1, 1, 20)
-
-        # make coordinate point
-        X, Y = np.meshgrid(xx, yy)
-
-        # dependent variable point on coordinate
-        f2 = sympy.lambdify((x, y), self.f_explicit)
-        Z = f2(X, Y)
-
         (
             K,
             H,
@@ -48,7 +48,9 @@ class Cylinder1(unittest.TestCase):
             k2,
             k1vec,
             k2vec,
-        ) = surface_curvature.discrete.curvature_discrete_parametric(X, Y, Z)
+        ) = surface_curvature.discrete.curvature_discrete_parametric(
+            self.X, self.Y, self.Z
+        )
 
         # measure the center of the matrices: (0,0)
         self.assertAlmostEqual(K[10, 10], 0, delta=0.1)
@@ -58,19 +60,19 @@ class Cylinder1(unittest.TestCase):
         self.assertTrue(np.abs(k1vec[10, 10] - np.array([1, 0, 0])).all() < 0.1)
         self.assertTrue(np.abs(k2vec[10, 10] - np.array([0, 1, 0])).all() < 0.1)
 
+    def test_mean(self):
+        H = surface_curvature.discrete.mean_curvature_orthogonal_monge(
+            self.Z, spacing=2 / 20
+        )
+        self.assertAlmostEqual(H[10, 10], -1 / 2, delta=0.1)
+
+    def test_gaussian(self):
+        K = surface_curvature.discrete.gaussian_curvature_orthogonal_monge(
+            self.Z, spacing=2 / 20
+        )
+        self.assertAlmostEqual(K[10, 10], 0, delta=0.1)
+
     def test_monge(self):
-        x, y = self.u, self.v
-
-        # coordinate range
-        xx = np.linspace(-1, 1, 20)
-        yy = np.linspace(-1, 1, 20)
-
-        # make coordinate point
-        X, Y = np.meshgrid(xx, yy)
-
-        # dependent variable point on coordinate
-        f2 = sympy.lambdify((x, y), self.f_explicit)
-        Z = f2(X, Y)
         (
             K,
             H,
@@ -78,7 +80,9 @@ class Cylinder1(unittest.TestCase):
             k2,
             k1vec,
             k2vec,
-        ) = surface_curvature.discrete.curvature_orthogonal_monge(Z, spacing=2 / 20)
+        ) = surface_curvature.discrete.curvature_orthogonal_monge(
+            self.Z, spacing=2 / 20
+        )
 
         self.assertAlmostEqual(K[10, 10], 0, delta=0.1)
         self.assertAlmostEqual(H[10, 10], -1 / 2, delta=0.1)
@@ -96,20 +100,20 @@ class CylindricalTurned1(unittest.TestCase):
     # (2*u-v)*(2*u-v) gives a curve that bends around the x=2*y line
     f_explicit = 2 + -(2 * u - v) * (2 * u - v)
 
+    x, y = u, v
+
+    # coordinate range
+    xx = np.linspace(-1, 1, 20)
+    yy = np.linspace(-1, 1, 20)
+
+    # make coordinate point
+    X, Y = np.meshgrid(xx, yy)
+
+    # dependent variable point on coordinate
+    f2 = sympy.lambdify((x, y), f_explicit)
+    Z = f2(X, Y)
+
     def test_parametric(self):
-        x, y = self.u, self.v
-
-        # coordinate range
-        xx = np.linspace(-1, 1, 20)
-        yy = np.linspace(-1, 1, 20)
-
-        # make coordinate point
-        X, Y = np.meshgrid(xx, yy)
-
-        # dependent variable point on coordinate
-        f2 = sympy.lambdify((x, y), self.f_explicit)
-        Z = f2(X, Y)
-
         (
             K,
             H,
@@ -117,7 +121,7 @@ class CylindricalTurned1(unittest.TestCase):
             k2,
             k1vec,
             k2vec,
-        ) = surface_curvature.discrete.curvature_discrete_parametric(X, Y, Z)
+        ) = surface_curvature.discrete.curvature_discrete_parametric(self.X, self.Y, self.Z)
 
         # measure the center of the matrices: (0,0) -> [10,10]
         self.assertAlmostEqual(K[10, 10], 0, delta=0.5)

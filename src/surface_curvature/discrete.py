@@ -127,7 +127,7 @@ def curvature_orthogonal_monge(Z, spacing=None):
     return K, H, k1, k2, k1vec, k2vec
 
 
-def mean_curvature_orthodiscrete_monge(Z):
+def mean_curvature_orthogonal_monge(Z, spacing=None):
     """
     Z is a 2D array
     This assumes that your data points of equal units apart.
@@ -145,13 +145,19 @@ def mean_curvature_orthodiscrete_monge(Z):
     Zxy, Zxx = np.gradient(Zx)
     Zyy, _ = np.gradient(Zy)
 
+    Zy = Zy / spacing
+    Zx = Zx / spacing
+    Zxy = Zxy / spacing**2
+    Zxx = Zxx / spacing**2
+    Zyy = Zyy / spacing**2
+
     H = (Zx**2 + 1) * Zyy - 2 * Zx * Zy * Zxy + (Zy**2 + 1) * Zxx
     H = H / (2 * (Zx**2 + Zy**2 + 1) ** (1.5))
 
     return H
 
 
-def gaussian_curvature_orthodiscrete_monge(Z: np.array):
+def gaussian_curvature_orthogonal_monge(Z: np.array, spacing=None):
     """
     Z is a 2D array
     This assumes that your data points of equal units apart
@@ -168,6 +174,13 @@ def gaussian_curvature_orthodiscrete_monge(Z: np.array):
     Zy, Zx = np.gradient(Z)
     Zxy, Zxx = np.gradient(Zx)
     Zyy, _ = np.gradient(Zy)
+
+    Zy = Zy / spacing
+    Zx = Zx / spacing
+    Zxy = Zxy / spacing**2
+    Zxx = Zxx / spacing**2
+    Zyy = Zyy / spacing**2
+    
     K = (Zxx * Zyy - (Zxy**2)) / (1 + (Zx**2) + (Zy**2)) ** 2
     return K
 
