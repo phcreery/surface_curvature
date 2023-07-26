@@ -180,7 +180,7 @@ def gaussian_curvature_orthogonal_monge(Z: np.array, spacing=None):
     Zxy = Zxy / spacing**2
     Zxx = Zxx / spacing**2
     Zyy = Zyy / spacing**2
-    
+
     K = (Zxx * Zyy - (Zxy**2)) / (1 + (Zx**2) + (Zy**2)) ** 2
     return K
 
@@ -270,7 +270,7 @@ def curvature_discrete_parametric(X: np.array, Y: np.array, Z: np.array):
     X1 = np.expand_dims(X1, 2)  # add a dimension to the end (lr*lb, 3, 1)
     X2 = np.expand_dims(X2, 2)  # add a dimension to the end (lr*lb, 3, 1)
 
-    dX = np.dstack((Xu, Xv))  ## TODO: WHY just Xu and Xv????
+    # dX = np.dstack((Xu, Xv))  ## TODO: WHY just Xu and Xv????
 
     # matrix multiplication of dX and X for each point
     k1vec = np.einsum("ijk,ikl->ilj", dX, X1)
