@@ -30,8 +30,8 @@ class Cylinder1(unittest.TestCase):
     x, y = u, v
 
     # coordinate range
-    xx = np.linspace(-1, 1, 20)
-    yy = np.linspace(-1, 1, 20)
+    xx = np.linspace(-1, 1, 21)
+    yy = np.linspace(-1, 1, 21)
 
     # make coordinate point
     X, Y = np.meshgrid(xx, yy)
@@ -103,8 +103,8 @@ class CylindricalTurned1(unittest.TestCase):
     x, y = u, v
 
     # coordinate range
-    xx = np.linspace(-1, 1, 20)
-    yy = np.linspace(-1, 1, 20)
+    xx = np.linspace(-1, 1, 21)
+    yy = np.linspace(-1, 1, 21)
 
     # make coordinate point
     X, Y = np.meshgrid(xx, yy)
@@ -121,7 +121,9 @@ class CylindricalTurned1(unittest.TestCase):
             k2,
             k1vec,
             k2vec,
-        ) = surface_curvature.discrete.curvature_discrete_parametric(self.X, self.Y, self.Z)
+        ) = surface_curvature.discrete.curvature_discrete_parametric(
+            self.X, self.Y, self.Z
+        )
 
         # measure the center of the matrices: (0,0) -> [10,10]
         self.assertAlmostEqual(K[10, 10], 0, delta=0.5)
