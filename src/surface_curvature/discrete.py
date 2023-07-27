@@ -24,11 +24,11 @@ def curvature_orthogonal_monge(Z, spacing=None):
     Zxy, Zxx = np.gradient(Zx)
     Zyy, _ = np.gradient(Zy)
 
-    Zy = Zy / spacing
-    Zx = Zx / spacing
-    Zxy = Zxy / spacing**2
-    Zxx = Zxx / spacing**2
-    Zyy = Zyy / spacing**2
+    # Zy = Zy / spacing
+    # Zx = Zx / spacing
+    # Zxy = Zxy / spacing**2
+    # Zxx = Zxx / spacing**2
+    # Zyy = Zyy / spacing**2
 
     Zx = np.reshape(Zx, lr * lb)
     Zy = np.reshape(Zy, lr * lb)
@@ -270,7 +270,7 @@ def curvature_discrete_parametric(X: np.array, Y: np.array, Z: np.array):
     X1 = np.expand_dims(X1, 2)  # add a dimension to the end (lr*lb, 3, 1)
     X2 = np.expand_dims(X2, 2)  # add a dimension to the end (lr*lb, 3, 1)
 
-    # dX = np.dstack((Xu, Xv))  ## TODO: WHY just Xu and Xv????
+    dX = np.dstack((Xu, Xv))  ## TODO: WHY just Xu and Xv????
 
     # matrix multiplication of dX and X for each point
     k1vec = np.einsum("ijk,ikl->ilj", dX, X1)
