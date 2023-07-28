@@ -113,3 +113,5 @@ python -m unittest discover .\tests\
 - https://github.com/pmp-library/pmp-library/blob/main/src/pmp/algorithms/curvature.cpp
 - https://github.com/AbhilashReddyM/curvpack
 - https://github.com/cuge1995/curvature-calculation-python/blob/main/plcurvature.py
+- https://booksite.elsevier.com/samplechapters/9780120887354/9780120887354.PDF
+- 

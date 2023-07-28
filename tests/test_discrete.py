@@ -113,6 +113,24 @@ class CylindricalTurned1(unittest.TestCase):
     f2 = sympy.lambdify((x, y), f_explicit)
     Z = f2(X, Y)
 
+    def test_orthogonal_monge(self):
+        (
+            K,
+            H,
+            k1,
+            k2,
+            k1vec,
+            k2vec,
+        ) = surface_curvature.discrete.curvature_orthogonal_monge(self.Z, spacing=0.1)
+
+        # measure the center of the matrices: (0,0) -> [10,10]
+        self.assertAlmostEqual(K[10, 10], 0, delta=0.1)
+        self.assertAlmostEqual(H[10, 10], -5, delta=0.1)
+        self.assertAlmostEqual(k1[10, 10], -10, delta=0.1)
+        self.assertAlmostEqual(k2[10, 10], 0, delta=0.1)
+        self.assertTrue(np.abs(k1vec[10, 10] - np.array([-2, 1, 0])).all() < 0.1)
+        self.assertTrue(np.abs(k2vec[10, 10] - np.array([-1, -2, 0])).all() < 0.1)
+
     def test_parametric(self):
         (
             K,

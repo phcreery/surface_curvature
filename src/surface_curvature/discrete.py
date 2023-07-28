@@ -6,7 +6,7 @@ import numpy as np
 def curvature_orthogonal_monge(Z, spacing=None):
     """
     Z is a 2D array
-    This assumes that your data points of equal units apart
+    This assumes that your data points are equal units apart
 
     The matrix Z is a 2D array with vertices arranged in the mesh form:
 
@@ -20,15 +20,9 @@ def curvature_orthogonal_monge(Z, spacing=None):
 
     (lr, lb) = Z.shape
 
-    Zy, Zx = np.gradient(Z)
-    Zxy, Zxx = np.gradient(Zx)
-    Zyy, _ = np.gradient(Zy)
-
-    # Zy = Zy / spacing
-    # Zx = Zx / spacing
-    # Zxy = Zxy / spacing**2
-    # Zxx = Zxx / spacing**2
-    # Zyy = Zyy / spacing**2
+    Zy, Zx = np.gradient(Z, spacing, spacing)
+    Zxy, Zxx = np.gradient(Zx, spacing, spacing)
+    Zyy, _ = np.gradient(Zy, spacing, spacing)
 
     Zx = np.reshape(Zx, lr * lb)
     Zy = np.reshape(Zy, lr * lb)
@@ -42,30 +36,23 @@ def curvature_orthogonal_monge(Z, spacing=None):
     H = (Zx**2 + 1) * Zyy - 2 * Zx * Zy * Zxy + (Zy**2 + 1) * Zxx
     H = H / (2 * (Zx**2 + Zy**2 + 1) ** (1.5))
 
-    # n = 1/np.sqrt(1+Zx**2+Zy**2)
+    # E = 1 + Zx**2
+    # F = Zx * Zy
+    # G = 1 + Zy**2
 
-    # E = 1+Zx**2
-    # F = Zx*Zy
-    # G = 1+Zy**2
+    # n = 1 / np.sqrt(1 + Zx**2 + Zy**2)
 
-    # L = Zxx*n
-    # M = Zxy*n
-    # N = Zyy*n
+    # L = Zxx * n
+    # M = Zxy * n
+    # N = Zyy * n
 
-    # for local parametrization f : V → S
-    # FF = np.array([[L, M], [M, N]]) # First fundamental form
-    # SFF = np.array([[E, F], [F, G]]) # Second fundamental form
-    # # # reshape so that the 2D matrices are in the ros/cols (lr*lb, 2, 2)
-    # FFF = np.swapaxes(FFF, 0, 2)
-    # SFF = np.swapaxes(SFF, 0, 2)
-    # print("FFF shape", FFF.shape)
-    # print("SFF shape", SFF.shape)
-    # print(f'FFF[0] {FFF[0]}')
-    # print(f'SFF[0] {SFF[0]}')
-    # # # print("FFF", FFF)
-    # P = FFF * np.linalg.inv(SFF)
+    # or this works too
+    # P = np.array([[L*G - M*F, M*E-L*F], [M*E-L*F, N*E-M*F]])
+    # P = P / (E*G-F*F)
+    # P = np.swapaxes(P, 0, 2)
+    # P = np.swapaxes(P, 1, 2)
 
-    # TODO: Shape operator
+    # Shape operator
     P = np.array(
         [
             [
@@ -102,7 +89,6 @@ def curvature_orthogonal_monge(Z, spacing=None):
     top = np.repeat(top, repeats=lr * lb, axis=0)
     dX = np.dstack((Zx, Zy))
     dX = np.hstack((top, dX))
-    # dX should now be in shape (lr*lb,3,2)
 
     # matrix multiplication of dX and X for each point
     k1vec = np.einsum("lij,ljk->lik", dX, X1)
