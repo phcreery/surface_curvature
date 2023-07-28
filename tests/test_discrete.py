@@ -144,11 +144,11 @@ class CylindricalTurned1(unittest.TestCase):
         )
 
         # measure the center of the matrices: (0,0) -> [10,10]
-        self.assertAlmostEqual(K[10, 10], 0, delta=0.5)
-        self.assertAlmostEqual(H[10, 10], -5, delta=0.5)
-        # self.assertAlmostEqual(k1[10, 10], -10, delta=0.5)
-        # self.assertAlmostEqual(k2[10, 10], 0, delta=0.5)
+        self.assertAlmostEqual(K[10, 10], 0, delta=0.1)
+        self.assertAlmostEqual(H[10, 10], -5, delta=0.1)
+        self.assertAlmostEqual(k1[10, 10], -10, delta=0.1)
+        self.assertAlmostEqual(k2[10, 10], 0, delta=0.1)
         # print(k1vec[10, 10])
         # print(k2vec[10, 10])
-        # self.assertTrue(np.abs(k1vec[10, 10] - np.array([-2, 1, 0])).all() < 0.1)
-        # self.assertTrue(np.abs(k2vec[10, 10] - np.array([-1, -2, 0])).all() < 0.1)
+        self.assertTrue(np.abs(k1vec[10, 10] - np.array([-2, 1, 0])).all() < 0.1)
+        self.assertTrue(np.abs(k2vec[10, 10] - np.array([-1, -2, 0])).all() < 0.1)

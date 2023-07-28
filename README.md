@@ -35,7 +35,7 @@ These are most likely not the fastest or optimized ways to do the calculations, 
     - [x] Mean
     - [x] Gaussian
     - [x] Principal
-    - [ ] Principal vectors
+    - [x] Principal vectors
   - [ ] Arbitrary Mesh
     - [ ] [Discrete Differential-Geometry Operators for Triangulated 2-Manifolds. Mark Meyer, Mathieu Desbrun, Peter Schröder and Alan H. Barr. VisMath 2002](http://www.multires.caltech.edu/pubs/diffGeoOps.pdf)
       - see `example/DiffGeoOps.ipynb`
