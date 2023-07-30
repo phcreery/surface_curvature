@@ -30,17 +30,17 @@ These are most likely not the fastest or optimized ways to do the calculations, 
     - [x] Mean
     - [x] Gaussian
     - [x] Principal
-    - [X] Principal vectors
+    - [x] Principal vectors
   - [x] Parametric
     - [x] Mean
     - [x] Gaussian
     - [x] Principal
     - [x] Principal vectors
   - [ ] Arbitrary Mesh
-    - [ ] [Discrete Differential-Geometry Operators for Triangulated 2-Manifolds. Mark Meyer, Mathieu Desbrun, Peter Schröder and Alan H. Barr. VisMath 2002](http://www.multires.caltech.edu/pubs/diffGeoOps.pdf)
+    - [ ] [Mark Meyer, Mathieu Desbrun, Peter Schröder and Alan H. Barr. Discrete Differential-Geometry Operators for Triangulated 2-Manifolds. Caltech, USC, 2002.](http://www.multires.caltech.edu/pubs/diffGeoOps.pdf)
       - see `example/DiffGeoOps.ipynb`
-    - [ ] [Rusinkiewicz, Szymon. "Estimating Curvatures and Their Derivatives on Triangle Meshes," Proc. 3DPVT, 2004.](https://gfx.cs.princeton.edu/pubs/Rusinkiewicz_2004_ECA/curvpaper.pdf)
-    - [ ] [Quadratic Fitting. Panozzo, 2010. (Using a localized fitting of surface to each vertex normal for computing curvature. polynomial regression or quadratic interpolation on the nearby vertices around the point to calculate principal curvatures.)](https://cims.nyu.edu/gcl/papers/GraVisMa10-PanozzoPuppoRocca.pdf)
+    - [ ] [Rusinkiewicz, Szymon. Estimating Curvatures and Their Derivatives on Triangle Meshes. Princeton University, 2004. ](https://gfx.cs.princeton.edu/pubs/Rusinkiewicz_2004_ECA/curvpaper.pdf)
+    - [ ] [D. Panozzo, E. Puppo, L. Rocca. Efficient Multi-scale Curvature and Crease Estimation. DISI - Universita di Genova, 2010. (Using a localized fitting of surface to each vertex normal for computing curvature. polynomial regression, quadratic fitting or quadratic interpolation on the nearby vertices around the point to calculate principal curvatures.)](https://cims.nyu.edu/gcl/papers/GraVisMa10-PanozzoPuppoRocca.pdf)
 
 ## Testing
 
@@ -61,7 +61,7 @@ python -m unittest discover .\tests\
 
 ### References
 
-- Keenan Crane (see [KeenanCraneLect15](examples/KeenanCraneLect15.ipynb))
+- Keenan Crane (see [KeenanCraneLect15.ipynb](examples/KeenanCraneLect15.ipynb))
   - https://brickisland.net/DDGFall2017/wp-content/uploads/2017/10/CMU_DDG_Fall2017_08_Surfaces.pdf
   - https://www.youtube.com/watch?v=e-erMrqBd1w
   - http://wordpress.discretization.de/geometryprocessingandapplicationsws19/a-quick-and-dirty-introduction-to-the-curvature-of-surfaces/
@@ -112,6 +112,5 @@ python -m unittest discover .\tests\
 - https://jhavaldar.github.io/assets/2017-07-16-diffgeo-notes5.pdf
 - https://github.com/pmp-library/pmp-library/blob/main/src/pmp/algorithms/curvature.cpp
 - https://github.com/AbhilashReddyM/curvpack
-- https://github.com/cuge1995/curvature-calculation-python/blob/main/plcurvature.py
 - https://booksite.elsevier.com/samplechapters/9780120887354/9780120887354.PDF
-- 
+-

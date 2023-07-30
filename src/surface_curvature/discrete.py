@@ -85,7 +85,7 @@ def curvature_orthogonal_monge(Z, spacing=None):
     Zy = np.reshape(Zy, (lr * lb, 1))
 
     # create df in parametric form which equals [[[1,0],[0,1],[Zx,Zy]],...]
-    top = np.array([[[spacing, 0], [0, spacing]]])
+    top = np.array([[[1, 0], [0, 1]]])
     top = np.repeat(top, repeats=lr * lb, axis=0)
     dX = np.dstack((Zx, Zy))
     dX = np.hstack((top, dX))
@@ -238,7 +238,7 @@ def curvature_discrete_parametric(X: np.array, Y: np.array, Z: np.array):
     H = (E * N + G * L - 2 * F * M) / (2 * (E * G - F**2))
 
     ## % Shape Operator as 3D a matrix of 2D matrices (2, 2, lr*lb)
-    ## this method is giving wrong directions and values
+    ## this method is giving wrong directions and values, not exactly sure why.
     # LMMN = np.array([[L, M], [M, N]])
     # EFFG = np.array([[E, F], [F, G]])
     ## reshape so that the 2D matrices are in the last dimension (lr*lb, 2, 2)
@@ -248,7 +248,9 @@ def curvature_discrete_parametric(X: np.array, Y: np.array, Z: np.array):
     # EFFG = np.swapaxes(EFFG, 1, 2)
     # P = LMMN * np.linalg.inv(EFFG)
 
-    # this method works, it is proven bu using it in discrete_shape_monge.ipynb
+    # this method works, it is proven by using it in discrete_shape_monge.ipynb
+    # it is basically same as above, except the inverse and matrix multiplication
+    # is done by hand
     P = np.array([[L * G - M * F, M * E - L * F], [M * E - L * F, N * E - M * F]])
     P = P / (E * G - F * F)
     P = np.swapaxes(P, 0, 2)
@@ -288,6 +290,3 @@ def curvature_discrete_parametric(X: np.array, Y: np.array, Z: np.array):
     k2vec = np.reshape(k2vec, (lr, lb, 3))
 
     return K, H, k1, k2, k1vec, k2vec
-
-
-# TODO: DiffGeoOps off mesh
