@@ -58,6 +58,7 @@ python -m unittest discover .\tests\
 - https://en.wikipedia.org/wiki/Mean_curvature
 - https://en.wikipedia.org/wiki/Gaussian_curvature
 - https://en.wikipedia.org/wiki/Parametric_surface#Curvature
+- https://e.math.cornell.edu/people/belk/differentialgeometry/Outline%20-%20The%20Gauss%20Map.pdf
 
 ### References
 
