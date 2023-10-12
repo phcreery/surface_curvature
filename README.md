@@ -114,4 +114,4 @@ python -m unittest discover .\tests\
 - https://github.com/pmp-library/pmp-library/blob/main/src/pmp/algorithms/curvature.cpp
 - https://github.com/AbhilashReddyM/curvpack
 - https://booksite.elsevier.com/samplechapters/9780120887354/9780120887354.PDF
--
+- https://www.appstate.edu/~greenwaldsj/class/4140/shapeoperator.pdf
