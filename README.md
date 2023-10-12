@@ -74,6 +74,7 @@ python -m unittest discover .\tests\
 - `Curvedness = sqrt((k1**2 + k2**2)/2)`
   - https://www.researchgate.net/publication/324908170_Description_and_Retrieval_of_Geometric_Patterns_on_Surface_Meshes_using_an_edge-based_LBP_approach
 - https://machinelearningmastery.com/a-gentle-introduction-to-the-laplacian/
+- https://www.appstate.edu/~greenwaldsj/class/4140/shapeoperator.pdf
 
 ### Discrete Algorithms:
 
@@ -114,4 +115,3 @@ python -m unittest discover .\tests\
 - https://github.com/pmp-library/pmp-library/blob/main/src/pmp/algorithms/curvature.cpp
 - https://github.com/AbhilashReddyM/curvpack
 - https://booksite.elsevier.com/samplechapters/9780120887354/9780120887354.PDF
-- https://www.appstate.edu/~greenwaldsj/class/4140/shapeoperator.pdf
