@@ -1,4 +1,9 @@
 20230405/
 20*/
 inputs*/
+<<<<<<< HEAD
 *inputs/
+=======
+*inputs/
+S800_surf_curvature.ipynb
+>>>>>>> fa1f4069bc3c486d59459593f793a64d5b19e940

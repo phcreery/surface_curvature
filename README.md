@@ -58,6 +58,10 @@ python -m unittest discover .\tests\
 - https://en.wikipedia.org/wiki/Mean_curvature
 - https://en.wikipedia.org/wiki/Gaussian_curvature
 - https://en.wikipedia.org/wiki/Parametric_surface#Curvature
+<<<<<<< HEAD
+=======
+- https://e.math.cornell.edu/people/belk/differentialgeometry/Outline%20-%20The%20Gauss%20Map.pdf
+>>>>>>> fa1f4069bc3c486d59459593f793a64d5b19e940
 
 ### References
 
@@ -73,6 +77,10 @@ python -m unittest discover .\tests\
 - `Curvedness = sqrt((k1**2 + k2**2)/2)`
   - https://www.researchgate.net/publication/324908170_Description_and_Retrieval_of_Geometric_Patterns_on_Surface_Meshes_using_an_edge-based_LBP_approach
 - https://machinelearningmastery.com/a-gentle-introduction-to-the-laplacian/
+<<<<<<< HEAD
+=======
+- https://www.appstate.edu/~greenwaldsj/class/4140/shapeoperator.pdf
+>>>>>>> fa1f4069bc3c486d59459593f793a64d5b19e940
 
 ### Discrete Algorithms:
 
@@ -113,4 +121,7 @@ python -m unittest discover .\tests\
 - https://github.com/pmp-library/pmp-library/blob/main/src/pmp/algorithms/curvature.cpp
 - https://github.com/AbhilashReddyM/curvpack
 - https://booksite.elsevier.com/samplechapters/9780120887354/9780120887354.PDF
+<<<<<<< HEAD
 -
+=======
+>>>>>>> fa1f4069bc3c486d59459593f793a64d5b19e940
