@@ -3,10 +3,12 @@ pyproject.toml
 src/surface_curvature/__init__.py
 src/surface_curvature/discrete.py
 src/surface_curvature/symbolic.py
+src/surface_curvature/utils.py
 src/surface_curvature.egg-info/PKG-INFO
 src/surface_curvature.egg-info/SOURCES.txt
 src/surface_curvature.egg-info/dependency_links.txt
 src/surface_curvature.egg-info/requires.txt
 src/surface_curvature.egg-info/top_level.txt
 tests/test_discrete.py
+tests/test_doctest.py
 tests/test_symbolic.py
