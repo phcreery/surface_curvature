@@ -127,6 +127,7 @@ def mean_curvature_orthogonal_monge(Z, spacing=None):
     O--O--O--O
     """
     # https://stackoverflow.com/questions/11317579/surface-curvature-matlab-equivalent-in-python
+    # TODO: use Zy, Zx = np.gradient(Z, spacing, spacing)
     Zy, Zx = np.gradient(Z)
     Zxy, Zxx = np.gradient(Zx)
     Zyy, _ = np.gradient(Zy)
@@ -157,6 +158,7 @@ def gaussian_curvature_orthogonal_monge(Z: np.array, spacing=None):
     O--O--O--O
     """
     # https://stackoverflow.com/questions/11317579/surface-curvature-matlab-equivalent-in-python
+    # TODO: use Zy, Zx = np.gradient(Z, spacing, spacing)
     Zy, Zx = np.gradient(Z)
     Zxy, Zxx = np.gradient(Zx)
     Zyy, _ = np.gradient(Zy)
