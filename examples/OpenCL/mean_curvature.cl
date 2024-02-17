@@ -6,8 +6,6 @@ __kernel void mean_curvature(__global float *dst, __global float *dx,
 
   const int i = get_global_id(0), j = get_global_id(1);
   const int2 coord = (int2){i, j};
-  // int width = get_image_width(src);
-  // int height = get_image_height(src);
   int width = get_global_size(0);
   // int height = get_global_size(1);
 

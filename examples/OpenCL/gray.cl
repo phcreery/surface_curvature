@@ -12,14 +12,8 @@ __kernel void to_gray(__write_only image2d_t output,
   int height = get_image_height(input);
 
   uint4 color = read_imageui(input, sampler, coord);
-
-  // float4 color = convert_float4(pixel) / 255;
-  // color.xyz = 0.2126*color.x + 0.7152*color.y + 0.0722*color.z;
-  // pixel = convert_uint4_rte(color * 255);
-  // write_imageui(output, coord, pixel);
-
   uint gray = 0.2126 * color.x + 0.7152 * color.y + 0.0722 * color.z;
-  // uint gray = (color.x + color.y + color.z) / 3;
+
   write_imageui(output, coord, (uint4)(gray, gray, gray, 0));
 }
 

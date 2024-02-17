@@ -16,10 +16,13 @@ __kernel void gradient_x_2d_img(__write_only image2d_t dst,
   int res = valueB - valueA;
 
   uint4 color;
+
+  // Red/Blue gradient
   // if (res > 0) color = (uint4){res,0,0,255};
   // else if (res < 0) color = (uint4){0,0,-res,255};
   // else color = (uint4){0,0,0,255};
 
+  // Gray gradient
   color = (uint4){res / 2 + 128, res / 2 + 128, res / 2 + 128, 255};
 
   write_imageui(dst, coord, color);
@@ -42,9 +45,7 @@ __kernel void gradient_x_2d(__global float *dst, __read_only image2d_t src) {
 
   printf("val");
 
-  // write_imagef(dst, coord, res);
   dst[i + j * width] = res;
-  // dst[i + j*get_global_size(0)] = res;
 
   // random number between 0-1  --
   // https://stackoverflow.com/questions/9912143/how-to-get-a-random-number-in-opencl
@@ -89,10 +90,13 @@ __kernel void gradient_y_2d_img(__write_only image2d_t dst,
   int res = valueB - valueA;
 
   uint4 color;
+
+  // Red/Blue gradient
   // if (res > 0) color = (uint4){res,0,0,255};
   // else if (res < 0) color = (uint4){0,0,-res,255};
   // else color = (uint4){0,0,0,255};
 
+  // Gray gradient
   color = (uint4){res / 2 + 128, res / 2 + 128, res / 2 + 128, 255};
 
   write_imageui(dst, coord, color);
