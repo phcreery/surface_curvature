@@ -58,6 +58,7 @@ python -m unittest discover .\tests\
 - https://en.wikipedia.org/wiki/Mean_curvature
 - https://en.wikipedia.org/wiki/Gaussian_curvature
 - https://en.wikipedia.org/wiki/Parametric_surface#Curvature
+- https://e.math.cornell.edu/people/belk/differentialgeometry/Outline%20-%20The%20Gauss%20Map.pdf
 
 ### References
 
@@ -65,6 +66,7 @@ python -m unittest discover .\tests\
   - https://brickisland.net/DDGFall2017/wp-content/uploads/2017/10/CMU_DDG_Fall2017_08_Surfaces.pdf
   - https://www.youtube.com/watch?v=e-erMrqBd1w
   - http://wordpress.discretization.de/geometryprocessingandapplicationsws19/a-quick-and-dirty-introduction-to-the-curvature-of-surfaces/
+  - https://brickisland.net/DDGSpring2021/wp-content/uploads/2020/04/DDG_458_SP20_Lecture18_LaplaceOperator.pdf
 - https://mathworld.wolfram.com/MeanCurvature.html
 - https://liavas.net/courses/math430/files/Surfaces.pdf
 - https://jhavaldar.github.io/assets/2017-07-16-diffgeo-notes5.pdf
@@ -72,7 +74,11 @@ python -m unittest discover .\tests\
 - https://www.mathworks.com/matlabcentral/fileexchange/11168-surface-curvature
 - `Curvedness = sqrt((k1**2 + k2**2)/2)`
   - https://www.researchgate.net/publication/324908170_Description_and_Retrieval_of_Geometric_Patterns_on_Surface_Meshes_using_an_edge-based_LBP_approach
-- https://machinelearningmastery.com/a-gentle-introduction-to-the-laplacian/
+- Laplacian (Laplace-Beltrami operator)
+  - https://machinelearningmastery.com/a-gentle-introduction-to-the-laplacian/
+  - https://brickisland.net/DDGSpring2021/wp-content/uploads/2020/04/DDG_458_SP20_Lecture18_LaplaceOperator.pdf
+  - https://en.wikipedia.org/wiki/Laplace_operator
+- https://www.appstate.edu/~greenwaldsj/class/4140/shapeoperator.pdf
 
 ### Discrete Algorithms:
 
@@ -91,7 +97,6 @@ python -m unittest discover .\tests\
 - Keenan Crane
 
   - https://www.cs.cmu.edu/~kmcrane/Projects/DGPDEC/paper.pdf
-  -
 
 - 2010 Panozzo - Quadratic Fitting
 
@@ -113,4 +118,3 @@ python -m unittest discover .\tests\
 - https://github.com/pmp-library/pmp-library/blob/main/src/pmp/algorithms/curvature.cpp
 - https://github.com/AbhilashReddyM/curvpack
 - https://booksite.elsevier.com/samplechapters/9780120887354/9780120887354.PDF
--
