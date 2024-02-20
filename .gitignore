@@ -3,3 +3,7 @@
 inputs*/
 *inputs/
 S800_surf_curvature.ipynb
+.venv/
+
+*.egg-info/
+*.egg
