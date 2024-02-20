@@ -1,12 +1,15 @@
 20230405/
 20*/
 inputs*/
-<<<<<<< HEAD
 *inputs/
-=======
 *inputs/
 S800_surf_curvature.ipynb
+
 .venv/
+__pypackages__/
 
 *.egg-info/
 *.egg
+
+.pdm-python
+.pdm.toml
