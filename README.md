@@ -79,6 +79,7 @@ python -m unittest discover .\tests\
   - https://brickisland.net/DDGSpring2021/wp-content/uploads/2020/04/DDG_458_SP20_Lecture18_LaplaceOperator.pdf
   - https://en.wikipedia.org/wiki/Laplace_operator
 - https://www.appstate.edu/~greenwaldsj/class/4140/shapeoperator.pdf
+- https://youtu.be/UYiAlYlSwBo?si=t2bkEyCyQkWdh4f-
 
 ### Discrete Algorithms:
 
