@@ -44,6 +44,8 @@ These are most likely not the fastest or optimized ways to do the calculations, 
 
 ## Testing
 
+This project is managed by rye.
+
 ```
 python -m unittest discover .\tests\
 ```

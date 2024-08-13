@@ -5,7 +5,6 @@ import surface_curvature
 # import numpy as np
 import sympy
 
-
 # first, lets create some hypothetical surfaces to pass to the functions
 
 
@@ -33,7 +32,7 @@ class Cylinder1(unittest.TestCase):
             self.f_parametric, (u, v)
         )
         self.assertEqual(K.subs({u: 0, v: 0}), 0)
-        self.assertEqual(H.subs({u: 0, v: 0}), -1 / 2)
+        self.assertAlmostEqual(H.subs({u: 0, v: 0}), -0.5)
         self.assertEqual(k1.subs({u: 0, v: 0}), 0)
         self.assertEqual(k2.subs({u: 0, v: 0}), -1)
         self.assertEqual(k1vec, sympy.Matrix([1, 0, 0]))
@@ -43,7 +42,7 @@ class Cylinder1(unittest.TestCase):
             self.f_parametric, (u, v), (0, 0)
         )
         self.assertEqual(K, 0)
-        self.assertEqual(H, -1 / 2)
+        self.assertAlmostEqual(H, -0.5)
         self.assertEqual(k1, -1)
         self.assertEqual(k2, 0)
         self.assertEqual(k1vec, sympy.Matrix([0, 1, 0]))
@@ -55,22 +54,20 @@ class Cylinder1(unittest.TestCase):
             self.f_explicit, (u, v)
         )
         self.assertEqual(K.subs({u: 0, v: 0}), 0)
-        self.assertEqual(H.subs({u: 0, v: 0}), -1 / 2)
+        self.assertAlmostEqual(H.subs({u: 0, v: 0}), -0.5)
         self.assertEqual(k1.subs({u: 0, v: 0}), 0)
-        self.assertEqual(k2.subs({u: 0, v: 0}), -1)
+        self.assertAlmostEqual(k2.subs({u: 0, v: 0}), -1)
         self.assertEqual(k1vec, sympy.Matrix([1.0, 0, 0]))
         self.assertEqual(
             k2vec,
-            sympy.Matrix(
-                [[0], [1.00000000000000], [-1.0 * v / sympy.sqrt(1 - v**2)]]
-            ),
+            sympy.Matrix([[0], [1.00000000000000], [-1.0 * v / sympy.sqrt(1 - v**2)]]),
         )
 
         K, H, k1, k2, k1vec, k2vec = surface_curvature.symbolic.curvature_explicit(
             self.f_explicit, (u, v), (0, 0)
         )
         self.assertEqual(K, 0)
-        self.assertEqual(H, -1 / 2)
+        self.assertAlmostEqual(H, -0.5)
         self.assertEqual(k1, -1)
         self.assertEqual(k2, 0)
         self.assertEqual(k1vec, sympy.Matrix([0, 1, 0]))

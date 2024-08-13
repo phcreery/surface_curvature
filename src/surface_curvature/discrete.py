@@ -3,7 +3,7 @@ import numpy as np
 # https://stackoverflow.com/questions/11317579/surface-curvature-matlab-equivalent-in-python
 
 
-def curvature_orthogonal_monge(Z, spacing=None):
+def curvature_orthogonal_monge(Z, spacing=1):
     """
     Z is a 2D array
     This assumes that your data points are equal units apart

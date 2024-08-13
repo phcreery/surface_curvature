@@ -13,3 +13,8 @@ __pypackages__/
 
 .pdm-python
 .pdm.toml
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class

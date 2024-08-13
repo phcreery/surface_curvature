@@ -1,10 +1,8 @@
 import unittest
 
-import surface_curvature
-
 import numpy as np
+import surface_curvature
 import sympy
-
 
 # first, lets create some hypothetical surfaces to pass to the functions
 
@@ -54,7 +52,7 @@ class Cylinder1(unittest.TestCase):
 
         # measure the center of the matrices: (0,0)
         self.assertAlmostEqual(K[10, 10], 0, delta=0.1)
-        self.assertAlmostEqual(H[10, 10], -1 / 2, delta=0.1)
+        self.assertAlmostEqual(H[10, 10], -(1 / 2), delta=0.1)
         self.assertAlmostEqual(k1[10, 10], 0, delta=0.1)
         self.assertAlmostEqual(k2[10, 10], -1, delta=0.1)
         self.assertTrue(np.abs(k1vec[10, 10] - np.array([1, 0, 0])).all() < 0.1)
