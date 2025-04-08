@@ -5,7 +5,7 @@ Several implementations of calculating mean, gaussian, and normal surface curvat
 The functions allow the surface to be defined either symbolically (with sympy) or discretely.
 You can of course take a discrete surface and fit a polynomial to the data to create a symbolic expression of the surface. Or vice-vera, by taking a symbolic function and picking out a set of data points along the surface to use for discrete evaluation.
 
-The data can be either explicit `z = f(x,y)` or parametric `(u,v) --> < x(uv), y(u,v), z(u,v) >`
+The data can be either explicit `z = f(x,y)` or parametric `(u,v) --> < x(u,v), y(u,v), z(u,v) >`
 There is yet another way to define a surface, implicitly `F(x,y,z) = 0`, but I have not created the functions for it yet.
 
 These are most likely not the fastest or optimized ways to do the calculations, instead, they are meant to be a medium to learn differential geometry and how the formulas are implemented into computer code.
