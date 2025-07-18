@@ -1,5 +1,8 @@
 # Surface Curvature in Python
 
+![PyPI - Version](https://img.shields.io/pypi/v/surface_curvature)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/surface_curvature)
+
 Several implementations of calculating mean, gaussian, and normal surface curvature along with principal curvature and respective directions.
 
 The functions allow the surface to be defined either symbolically (with sympy) or discretely.
