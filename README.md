@@ -52,6 +52,12 @@ uv run python -m unittest discover .\tests\
 
 ## Building
 
+```
+uv version --bump minor
+uv build
+uv publish
+```
+
 ## References:
 
 ### Definitions
